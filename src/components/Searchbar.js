@@ -1,24 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.css';
 
-class Searchbar extends React.Component {
-    state = {
-        searchQuery: '',
-        };
+const  Searchbar=({onSubmit})=> {
 
-    handleNameChange = (e) => {
-        this.setState({ searchQuery: e.currentTarget.value.toLowerCase()});
+  const [searchQuery, setSerchQuery] = useState('')
+
+  const handleNameChange = (e) => {
+        setSerchQuery( e.currentTarget.value.toLowerCase());
     };
 
-    handleSubmit = (e) => {
+   const handleSubmit = (e) => {
         e.preventDefault();
-        this.props.onSubmit(this.state.searchQuery);
-        this.setState({ searchQuery: '' });
+      onSubmit(searchQuery);
+        setSerchQuery( '' );
     };
 
-    render() {
         return (
-          <header className={styles.Searchbar} onSubmit={this.handleSubmit}>
+          <header className={styles.Searchbar} onSubmit={handleSubmit}>
           <form className={styles.SearchForm}>
             <button type="submit" className={styles.SearchFormButton}>
               <span className={styles.SearchFormBtnLabel}>Search</span>
@@ -30,13 +28,12 @@ class Searchbar extends React.Component {
                 autoComplete="off"
                 autoFocus
                 placeholder="Search images and photos"
-                value={this.state.searchQuery}
-               onChange={this.handleNameChange}
+                value={searchQuery}
+               onChange={handleNameChange}
               />
           </form>
             </header>
       );
     }
-};
 
 export default Searchbar;
