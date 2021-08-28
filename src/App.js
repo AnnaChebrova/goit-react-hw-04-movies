@@ -15,7 +15,7 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-    const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [modalUrl, setModalUrl] = useState('');
   const [modalAlt, setModalAlt] = useState('');
 
@@ -65,7 +65,8 @@ const App = () => {
     toggleModal();
   };
     
-    const renderLoadMoreButton = !(currentPageImages.length < 12) && !isLoading;
+    // const  = !(currentPageImages.length < 12) && !isLoading;
+    const renderLoadMoreButton = !(currentPageImages < 12) && !isLoading;
 
     return (
       <>
