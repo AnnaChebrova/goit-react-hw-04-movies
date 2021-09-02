@@ -2,7 +2,6 @@ import axios from 'axios';
 axios.defaults.baseURL = "https://api.themoviedb.org/3/";
 const KEY = `eecf8c65fd813ef076ac9f633cd2051a`;
 
-
 const getMovie = () => {
   return axios
     .get(`/trending/all/day?api_key=${KEY}`)
@@ -35,12 +34,9 @@ const MovieSearch = (query) => {
     .then((response) => response.data.results);
 };
 
-const imagePath = "https://image.tmdb.org/t/p/w500/";
-
 export default {
 getMovie,
 getMovieInfo,
-  imagePath,  
   getCast,  
 getReview,
   MovieSearch

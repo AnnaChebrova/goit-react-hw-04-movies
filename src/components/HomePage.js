@@ -8,7 +8,6 @@ const HomePage = () => {
 const [topMovies, setTopMovies] = useState([]);
 const location = useLocation();
 
-
 useEffect(() => {
     API.getMovie().then((topMovies) => {
         setTopMovies(topMovies);

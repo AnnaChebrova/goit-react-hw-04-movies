@@ -3,6 +3,7 @@ import { NavLink, useRouteMatch, useLocation, useHistory } from 'react-router-do
 import { useState, useEffect } from 'react';
 import qs from 'query-string';
 import API from './ApiService';
+import styles from './styles.module.css';
 
 const BtnBack = lazy(() => import('../components/BtnBack'));
 
@@ -50,8 +51,9 @@ const MoviesPage = () => {
                     placeholder="Search movies"
                     value={searchQuery}
                     onChange={handelChange}
+                    className={styles.inputSearch}
                 />
-            <button type="submit">
+            <button type="submit" className={styles.btnSearch}>
             </button>
             </form>
             <ul>
