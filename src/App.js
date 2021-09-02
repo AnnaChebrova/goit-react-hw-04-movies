@@ -1,28 +1,37 @@
-import React, { Suspense, lazy } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from "react-router";
+import { lazy, Suspense } from "react";
+import PageNav from "./components/PageNav";
 
-const PageNav = lazy(() => import('./components/PageNav'));
-const HomePage = lazy(() => import('./components/HomePage'));
-const MoviesPage = lazy(() => import('./components/MoviesPage'));
-const MovieDetailsPage = lazy(() => import('./components/MovieDetailsPage'));
+const HomePage = lazy(() => import('./components/HomePage.js'));
+const MoviesPage = lazy(() => import('./components/MoviesPage.js'));
+const MovieDetailsPage = lazy(() => import('./components/MovieDetailsPage.js'));
 
-export default function App () {
+
+function App() {
   return (
-    <>
-    <Suspense fallback={<h1>Loading.....</h1>}>
-      <PageNav/>
-      <Switch>
-        <Route path="/" exact>
-          <HomePage />
-        </Route> 
-        <Route path="/movies" exact>
+    <div>
+      <PageNav />
+      <Suspense fallback={<h1>Loading.....</h1>}>
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+
+          <Route path="/movies/:movieId">
+            <MovieDetailsPage />
+          </Route>
+
+          <Route path="/movies" exact>
             <MoviesPage />
-        </Route> 
-        <Route path="/movies/:movieId">
-        <MovieDetailsPage/>
-        </Route>
-      </Switch>
-    </Suspense>
-   </>
+          </Route>
+
+          <Route>
+            <HomePage />
+          </Route>
+        </Switch>
+      </Suspense>
+    </div>
   );
-};
+}
+
+export default App;

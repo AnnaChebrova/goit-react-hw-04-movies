@@ -4,11 +4,11 @@ import API from './ApiService';
 
 export default function Cast() {
   const { movieId } = useParams();
-  const [cast, setCast] = useState(null);
+  const [cast, setCast] = useState([]);
 
   useEffect(() => {
-  API.getCast(movieId).then(data => setCast(data.cast));
-    }, [movieId]);
+  API.getCast(movieId).then(setCast);
+}, [movieId]);
     
   return (
       <ul>

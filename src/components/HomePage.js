@@ -3,13 +3,17 @@ import { NavLink, useLocation } from 'react-router-dom';
 import styles from './styles.module.css'
 
 import API from './ApiService';
+
 const HomePage = () => {
 const [topMovies, setTopMovies] = useState([]);
 const location = useLocation();
 
+
 useEffect(() => {
-    API.getMovie(setTopMovies);
-    }, []);
+    API.getMovie().then((topMovies) => {
+        setTopMovies(topMovies);
+    });
+  }, []);
 
     return (
     <>

@@ -7,8 +7,8 @@ const Rewiews = () => {
   const [rewiews, setRewiews] = useState(null);
 
  useEffect(() => {
- API.getRewiews(movieId).then(MovieRewiews=>setRewiews(MovieRewiews));
-    }, [movieId]);
+ API.getReview(movieId).then(setRewiews);
+}, [movieId]);
 
   if (rewiews && rewiews.length > 0) {
     return (
