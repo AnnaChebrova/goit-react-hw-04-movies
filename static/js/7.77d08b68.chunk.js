@@ -1,0 +1,2 @@
+(this["webpackJsonpgoit-react-hw-04-movies"]=this["webpackJsonpgoit-react-hw-04-movies"]||[]).push([[7],{62:function(t,o,n){"use strict";n.r(o);var c=n(2),e=n(8),i=n.n(e),a=n(1);o.default=function(){var t=Object(c.f)(),o=Object(c.g)();return Object(a.jsx)("button",{title:"Go back",type:"button",onClick:function(){var n,c;t.push(null!==(n=null===o||void 0===o||null===(c=o.state)||void 0===c?void 0:c.from)&&void 0!==n?n:"/")},className:i.a.btnBack,children:" Go back "})}}}]);
+//# sourceMappingURL=7.77d08b68.chunk.js.map
