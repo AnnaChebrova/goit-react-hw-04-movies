@@ -16,12 +16,12 @@ function App() {
           <Route path="/" exact>
             <HomePage />
           </Route>
-
+          
           <Route path="/movies/:movieId">
             <MovieDetailsPage />
           </Route>
 
-          <Route path="/movies" exact>
+          <Route path="/movies" >
             <MoviesPage />
           </Route>
 

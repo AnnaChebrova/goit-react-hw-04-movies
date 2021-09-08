@@ -14,12 +14,13 @@ export default function MovieDetailsPage() {
   const { url, path } = useRouteMatch();
   const [movie, setMovie] = useState(null);
 
+  
   useEffect(() => {
   API.getMovieInfo(movieId).then(movieInfo => setMovie(movieInfo));
   }, [movieId]); 
 
   const BtnBack = () => {
-    history.push(location?.state?.from ?? '/');
+    history.push(location.state.from);
   };
 
   return (
@@ -50,11 +51,26 @@ export default function MovieDetailsPage() {
         <h3>Additional information</h3>
         <ul>
           <li>
-            <NavLink to={`${url}/cast`}>Cast</NavLink>
+
+          <NavLink
+              to={{
+                pathname: `${url}/cast`,
+                state: { from: location.state.from },
+              }}
+            >
+              Cast
+            </NavLink>
           </li>
+
           <li>
-            <NavLink to={`${url}/rewiews`}>Rewiews</NavLink>
-          </li>
+          <NavLink
+              to={{
+                pathname: `${url}/rewiews`,
+                state: { from: location.state.from },
+              }}
+            >
+              Reviews
+            </NavLink>          </li>
         </ul>
 
         <Route path={`${path}/cast`}>

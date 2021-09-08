@@ -41,6 +41,7 @@ const MoviesPage = () => {
     return (
         <>
             <Suspense fallback={<h1>Loading.....</h1>}>
+                
             <BtnBack />
             </Suspense>
             <form onSubmit={handleSubmit}>
@@ -59,7 +60,7 @@ const MoviesPage = () => {
             <ul>
                 {movies && movies.map(movie => {
                     return (<li key={movie.id}>
-                        <NavLink
+                        <NavLink exact
                             to={{
                             pathname: `${url}/${movie.id}`,
                             state: {
